@@ -9,7 +9,7 @@ body, html {
 
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #f6d79a, #f3a97f);
+    background: linear-gradient(to bottom, #fbbeb9, #e8cb75);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -28,9 +28,15 @@ body, html {
 }
 
 /* Header text styling */
-.container h1 {
+.container h1{
     font-size: 2em;
     color: #333;
+    margin-bottom: 10px;
+}
+
+.container h2{
+    font-size: 1.3em;
+    color: #555;
     margin-bottom: 10px;
 }
 
@@ -57,4 +63,34 @@ button {
 button:hover {
     background-color: orangered;
     transform: scale(1.1);
+}
+
+.skin-dropdown {
+    font-size: 18px;            /* Adjust the font size */
+    padding: 10px;              /* Add padding for better spacing */
+    margin: 20px 0;             /* Add some margin around the dropdown */
+    border: 2px solid #ff9900;  /* Add a border with an orange color */
+    border-radius: 5px;         /* Round the corners */
+    background-color: #fff5e6;  /* Light orange background */
+    color: #333;                /* Dark text for readability */
+    cursor: pointer;            /* Change cursor to pointer */
+    width: 100%;                /* Make it responsive */
+    max-width: 300px;           /* Limit the width for larger screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: all 0.3s ease;  /* Smooth transitions for hover effects */
+}
+
+/* Change appearance on focus or hover */
+.skin-dropdown:focus,
+.skin-dropdown:hover {
+    border-color: #cc7a00;      /* Darker orange on hover */
+    background-color: #ffe0b3;  /* Slightly darker orange background */
+    outline: none;              /* Remove default outline */
+}
+
+/* Style the dropdown options */
+.skin-dropdown option {
+    font-size: 16px;            /* Adjust font size for options */
+    background-color: #fff5e6;  /* Match the dropdown background */
+    color: #333;                /* Dark text */
 }

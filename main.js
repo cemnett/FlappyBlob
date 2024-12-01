@@ -13,14 +13,14 @@ let context;
 let blob = {
   x : gameDisplayWidth/8,
   y : gameDisplayHeight/2,
-  width : 40,
-  height : 40
+  width : 50,
+  height : 50
 }
 
 // wall variables
 let wallArray = [];
-let wallHeight = 500;               // make sure to adjust if you replace image
-let wallWidth = 62;                 // same ^^
+let wallHeight = 450;               // make sure to adjust if you replace image
+let wallWidth = 50;                 // same ^^
 let wallX = gameDisplayWidth;
 let wallY = 0;
 
@@ -35,10 +35,9 @@ window.onload = function() {
   gameDisplay.height = gameDisplayHeight;
   gameDisplay.width = gameDisplayWidth;
 
-  // display the blob
+  const selectedSkin = localStorage.getItem('blobSkin') || 'blob.png';
   blobImg = new Image();
-  blobImg.src = "images/tnt.png";
-  // blobImg.src = "./turkey.png";
+  blobImg.src = `images/${selectedSkin}`;
   blobImg.onload = function() {
     context.drawImage(blobImg, blob.x, blob.y, blob.width, blob.height);
   }

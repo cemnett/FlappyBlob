@@ -7,6 +7,14 @@
 <body>
     <div class="container">
         <h1>Welcome to the Game!</h1>
+        <h2>Choose Your Blob Skin!</h2>
+        <select id="skinDropdown" class="skin-dropdown">
+            <option value="cig.png">Cigarette</option>
+            <option value="blob.png">Blob</option>
+            <option value="turkey.png">Turkey Leg</option>
+            <option value="mallow.png">Marshmallow</option>
+            <option value="tnt.png">TNT</option>
+        </select>
         <p>Are you ready to play? Click below to begin your adventure!</p>
         <button id="startGame" class="start-button">Start Game</button>
         <button id="instruction" class="instruction-button">Read Instructions</button>
@@ -14,7 +22,13 @@
 
     <script>
         document.getElementById("startGame").addEventListener("click", function() {
-            window.location.href = "main.html"; // Redirects to main game page
+            const selectedSkin = document.getElementById("skinDropdown").value;
+
+            // Save the selected skin in localStorage
+            localStorage.setItem("blobSkin", selectedSkin);
+
+            // Redirect to the game
+            window.location.href = "main.html";
         });
         document.getElementById("instruction").addEventListener("click", function() {
             window.location.href = "instructions.html"; // Redirects to main game page
