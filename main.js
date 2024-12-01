@@ -13,8 +13,8 @@ let context;
 let blob = {
   x : gameDisplayWidth/8,
   y : gameDisplayHeight/2,
-  width : 30,
-  height : 30
+  width : 40,
+  height : 40
 }
 
 // wall variables
@@ -37,17 +37,18 @@ window.onload = function() {
 
   // display the blob
   blobImg = new Image();
-  blobImg.src = "./blob.png";
+  blobImg.src = "images/tnt.png";
+  // blobImg.src = "./turkey.png";
   blobImg.onload = function() {
     context.drawImage(blobImg, blob.x, blob.y, blob.width, blob.height);
   }
 
   // create the wall images
   topWallImg = new Image();
-  topWallImg.src = "./wall.png";
+  topWallImg.src = "images/downfire.png";
 
   bottomWallImg = new Image();
-  bottomWallImg.src = "./wall.png";
+  bottomWallImg.src = "images/fire.png";
 
   requestAnimationFrame(updateFrame);
 
@@ -61,6 +62,8 @@ function updateFrame() {
   requestAnimationFrame(updateFrame);
 
   if (gameOver) {
+
+    window.location.href = `gameOver.html?score=${score}`;
     return;
   }
 

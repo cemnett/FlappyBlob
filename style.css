@@ -1,3 +1,60 @@
 #gameDisplay {
-    background-color: skyblue;
+    background-color: orange;
+}
+
+
+/* Reset some browser default styles */
+body, html {
+    margin: 0;
+
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #f6d79a, #f3a97f);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container for the homepage */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header text styling */
+.container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+.container p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+    padding: 15px 30px;
+    font-size: 1em;
+    color: white;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 15px;
+}
+
+button:hover {
+    background-color: orangered;
+    transform: scale(1.1);
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="container">
+        <h1>How to play:</h1>
+        <p>Have your finger on the spacebar, because pressing that key will lift your blob!</p>
+        <p>Avoid making contact with any of the flames, otherwise its game over!</p>
+        <button id="startGame" class="start-button">Start Game</button>
+    </div>
+
+    <script>
+        document.getElementById("startGame").addEventListener("click", function() {
+            window.location.href = "main.html"; // Redirects to main game page
+        });
+    </script>
+</body>
+</html>
