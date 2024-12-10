@@ -1,3 +1,8 @@
+// misc variables
+let lastTime = 0;
+let currentTime = 0;
+let velocity = 0;
+
 // overall game variables
 let gameOver = false;
 let score = 0;
@@ -29,7 +34,9 @@ let blobImg;
 let topWallImg;
 let bottomWallImg;
 
-window.onload = function() {
+window.onload = onStart;
+
+function onStart() {
   gameDisplay = document.getElementById("gameDisplay");
   context = gameDisplay.getContext("2d");
   gameDisplay.height = gameDisplayHeight;
@@ -54,24 +61,43 @@ window.onload = function() {
   // walls are created every 1.5 seconds
   setInterval(createWalls, 1500);
 
-  document.addEventListener("keydown", jump);
+  document.addEventListener("keydown", onJump);
+  document.addEventListener("pointerdown", onJump);
 }
 
-function updateFrame() {
-  requestAnimationFrame(updateFrame);
+function resetCanvas() {
+  context.clearRect(0, 0, gameDisplay.width, gameDisplay.height);
+}
+
+function updateBlob(deltaTime) {
+  console.log(blob, blob);
+  const acceleration = -9.8 * 100;
+  velocity += acceleration * deltaTime;
+  blob.y -= velocity * deltaTime;
+
+  console.log("ACC", acceleration, acceleration * deltaTime);
+  console.log("VEL", velocity, velocity * deltaTime);
+
+  context.drawImage(
+    blobImg, 
+    blob.x, 
+    blob.y, 
+    blob.width, 
+    blob.height);
+}
+
+function updateFrame(time) {
+  let deltaTime = (time - lastTime) / 1000;
+  lastTime = time;
+  currentTime = time;
 
   if (gameOver) {
-
     window.location.href = `gameOver.html?score=${score}`;
     return;
   }
 
-  context.clearRect(0, 0, gameDisplay.width, gameDisplay.height);
-
-  // adjust the blob
-  jumpHeight += 0.4;  // this acts as gravity to slowly pull the blob down
-  blob.y += jumpHeight;
-  context.drawImage(blobImg, blob.x, blob.y, blob.width, blob.height);
+  resetCanvas();
+  updateBlob(deltaTime);
 
   if (blob.y > gameDisplay.height) {
     gameOver = true;
@@ -109,6 +135,8 @@ function updateFrame() {
     context.font = "55px sans-serif";
     context.fillText("GAME OVER", 15, gameDisplayHeight/2);
   }
+    
+  requestAnimationFrame(updateFrame);
 }
 
 function createWalls() {
@@ -143,8 +171,8 @@ function createWalls() {
 }
 
 // blob jumps
-function jump(e) {
-  if (e.code == "Space") {
-    jumpHeight = -6;
+function onJump(e) {
+  if (e.code == "Space" || e.pointerId == 1) {
+    velocity = 98 * 5;
   }
 }
