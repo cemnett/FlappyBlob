@@ -122,6 +122,8 @@ function goPlay() {
 function goEnd() {
   hideAll();
   pageEnd.hidden = false;
+  
+  document.getElementById('finalScore').textContent = data.score;
 }
 
 function hideAll() {
