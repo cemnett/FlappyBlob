@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-<body>
-    <canvas id="gameDisplay"></canvas>
+<head>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
+</head>
+<body>
+    <div id="main-container">
+        <div id="header-container">
+            <h2>Le Flappy Blob</h2>
+        </div>
+        <div id="body-container">
+            <div id="content-container">
+                <div id="content-title-container">
+                    <h3 id="game-money">$0</h3>
+                    <div class="vert-divider"></div>
+                    <h3 id="game-highpoints">0 Points</h3>
+                    <div class="vert-divider"></div>
+                    <h3 id="game-points">0 Points</h3>
+                    <div class="vert-divider"></div>
+                    <h3 id="game-speed">1.00x Move Speed</h3>
+                </div>
+                <div id="content-body-container">
+                    <canvas id="game-viewport"></canvas>
+                    <div id="game-instructions" class="container">
+                        <h1>How to play:</h1>
+                        <p>Have your finger on the spacebar, because pressing that key will lift your blob!</p>
+                        <p>Avoid making contact with any of the flames, otherwise its game over!</p>
+                        <button class="start-button" onpointerdown="goPlay()">Start Game</button>
+                    </div>
+                    <div id="game-end" class="container">
+                        <h1>Game Over!</h1>
+                        <p>Your final score: <span id="finalScore"></span></p>
+                        <p>Would you like to play again?</p>
+                        <button class="start-button" onpointerdown="goPlay()">Play Again</button>
+                        <button class="home-button" onpointerdown="goHome()">Go Home</button>
+                    </div>
+                    <div id="game-home" class="container">
+                        <h1>Welcome to the Game!</h1>
+                        <h2>Choose Your Blob Skin!</h2>
+                        <select id="skinDropdown" class="skin-dropdown" onchange="onSkinSelect()">
+                            <option value="cig.png">Cigarette</option>
+                            <option value="blob.png">Blob</option>
+                            <option value="turkey.png">Turkey Leg</option>
+                            <option value="mallow.png">Marshmallow</option>
+                            <option value="tnt.png">TNT</option>
+                        </select>
+                        <p>Are you ready to play? Click below to begin your adventure!</p>
+                        <button id="startGame" class="start-button" onpointerdown="goPlay()">Start Game</button>
+                        <button id="instruction" class="instruction-button" onpointerdown="goInstructions()">Read Instructions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 

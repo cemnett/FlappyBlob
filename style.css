@@ -1,19 +1,79 @@
-#gameDisplay {
+/* Base */
+body {
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Main */
+#main-container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+/* Header */
+#header-container {
+	display: flex;
+
+    background: 
+        linear-gradient(to right, rgba(255, 255, 0, 0.2), rgba(255, 0, 0, 0.2)), /* Gradient */
+        repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 10px, transparent 10px, transparent 20px); /* Grid lines */
+    background-size: cover; /* Adjust as needed */
+    background: linear-gradient(to left, #fbbeb9, #e8cb75);
+	color: black;
+	height: 64px;
+	align-items: center;
+    padding: 4px 16px;
+}
+
+/* Body */
+#body-container {
+	display: flex;
+	flex-direction: row;
+	height: calc(100% - 56px);
+}
+
+/* Body/Content */
+#content-container {
+	width: 100%;
+	background-color: #222222;
+}
+
+#content-title-container {
+	display: flex;
+	height: 56px;
+	width: 100%;
+	background-color: #111111;
+    color: #e0e0e0;
+	text-align: left;
+	align-items: center;
+	border-bottom: solid #000000 1px;
+}
+
+#content-title-container h3 {
+	margin: 0 1em;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+#content-body-container {
+    display: flex;
+	overflow-y: auto;
+    justify-content: center;
+    margin-top: 128px;
+}
+
+#game-viewport {
     background-color: orange;
 }
 
-
-/* Reset some browser default styles */
-body, html {
-    margin: 0;
-
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #fbbeb9, #e8cb75);
+/* Components */
+.vert-divider {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 1px;
+    background-color: #000000;
 }
 
 /* Main container for the homepage */
